@@ -15,3 +15,9 @@ I think it was because the website was heavily reliant on javascript which make 
 When it finally printed the html, it printed the html of the cloudflare html instead of the actual html.
 
 I think the way I bypassed this was adding a sleep timer and letting the website load before grabbing the html.
+
+I used the .click() to interact with the "Top Trader" button to load the js of those classes.
+
+I used XPATH because there were multiple buttons with the same class name.
+
+Changed the print to just the address along with the ranking.
