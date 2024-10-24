@@ -29,3 +29,7 @@ Using Pandas library to find the intersections of the wallets.
 Done for now but I might revisit where I will have the win percentage next to each wallet.
 
 I will probably do that after I finish wallet-tracking.py.
+
+https://gmgn.ai/sol/address/54EiavhVatcFbcRHKm2swd6eB8reyib3kTkDGScoGjGK
+
+I can input wallets and scrape the winrate data of off this website. 

@@ -5,8 +5,9 @@ from functools import reduce
 df1 = pd.read_csv('scoop.csv')
 df2 = pd.read_csv('act.csv')
 df3 = pd.read_csv('flavia.csv')
+df4 = pd.read_csv('gnon.csv')
 
-dataframes = [df1, df2, df3]
+dataframes = [df1, df2, df4]
 
 intersection = reduce(lambda left, right: pd.merge(left, right, on='Top Traders'), dataframes)
 
