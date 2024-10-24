@@ -5,8 +5,8 @@ import csv
 
 driver = Driver(uc=True)
 
-token_name = "gnon"
-pair = "2ur2gzkshap8xj33qss7c5zutd9mrjvrgwohr2q7t1sv"
+token_name = "gematro"
+pair = "lvgg24f4cjcb9gcrqghuleud4nmcl2lrc79wkbebmyx"
 
 url = "https://dexscreener.com/solana/" + pair
 
