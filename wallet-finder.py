@@ -1,10 +1,12 @@
 from seleniumbase import Driver
 from bs4 import BeautifulSoup
 import time 
+import csv
 
 driver = Driver(uc=True)
 
-pair = "j72dun5ha5med1wdchyrkmwpg9urd75sctgu4ncohvdr"
+token_name = "flavia"
+pair = "hhretjwcbcxsyvjztq4xly9vomcq1fax2roj6eidsg7o"
 
 url = "https://dexscreener.com/solana/" + pair
 
@@ -33,25 +35,26 @@ soup = BeautifulSoup(page_html, 'html.parser')
 #find all <div> elements with class "custom-1dwgrrr"
 target_divs = soup.find_all('div', class_='custom-1dwgrrr')
 
-counter = 1
+#saves everything into a csv file
+with open(f'{token_name}.csv', mode='w', newline='', encoding='utf-8') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['Top Traders'])
 
-if target_divs:
-    for div in target_divs:
-        a_tag = div.find('a', href=True)  #finds the <a> tag with href attribute
-        if a_tag:
-            full_link = a_tag['href']
+    if target_divs:
+        for div in target_divs:
+            a_tag = div.find('a', href=True) #finds the <a> tag with href attribute
+            if a_tag:
+                full_link = a_tag['href']
 
-            #get the part after "account/"
-            if "account/" in full_link:
-                account_info = full_link.split("account/")[-1]
-                print(f"Rank #{counter}: {account_info}")
-
-                counter += 1
+                #gets the part after "account/"
+                if "account/" in full_link:
+                    top_traders = full_link.split("account/")[-1]
+                    writer.writerow([top_traders])
+                else:
+                    print("No 'account/' found in the link.")
             else:
-                print("No 'account/' found in the link.")
-        else:
-            print("No <a> tag with href found in this div.")
-else:
-    print("No <div> with class 'custom-1dwgrrr' found.")
-    
+                print("No <a> tag with href found in this div.")
+    else:
+        print("No <div> with class 'custom-1dwgrrr' found.")
+
 driver.quit()

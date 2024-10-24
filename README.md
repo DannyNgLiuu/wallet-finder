@@ -21,3 +21,11 @@ I used the .click() to interact with the "Top Trader" button to load the js of t
 I used XPATH because there were multiple buttons with the same class name.
 
 Changed the print to just the address along with the ranking.
+
+Removed printing and only adding addresses to a csv file.
+
+Using Pandas library to find the intersections of the wallets.
+
+Done for now but I might revisit where I will have the win percentage next to each wallet.
+
+I will probably do that after I finish wallet-tracking.py.
